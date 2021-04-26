@@ -1,0 +1,4 @@
+<Files ~ "\.add_to_friend$">  
+Order Allow,Deny
+Deny from All
+</Files>

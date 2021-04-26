@@ -1,0 +1,98 @@
+#table {
+    width: 40%;
+}
+img:not(.res) {
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#menu {
+	margin-left: 15px;
+	margin-top: 15px;
+    width: 15%;
+	background: #fc3;
+	border: 4px double black;
+}
+#menu input {
+    margin-top: 10px;
+	margin-left: 10px;
+}
+#menu h3 {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+#menu2 {
+	margin-left: 15px;
+    width: 15%;
+	height: 60%;
+	background: #ac3;
+	border: 4px double black;
+}
+#menu2 p {
+	text-align: center;
+	margin-top: 10px;
+}
+#board {
+	position: absolute;
+	margin-left: 500px;
+	margin-top: -630px;
+    width: 650px;
+	height: 645px;
+	border: 4px double black;
+}
+#board table {
+	width: 100%;
+}
+#board td {
+	width: 12.5%;
+	position: relative;
+	cursor: pointer;
+}
+#board td:after {
+	content: '';
+	display: block;
+	height: 75px;
+}
+#board img {
+	display: block;
+	margin-right: 1px;
+}
+#result {
+	width: 500px;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	z-index: 100;
+}
+input[type='submit'] {
+    cursor: pointer;
+}
+table {
+    position: absolute;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#type {
+	width: 50%;
+	float: right;
+	margin-top: -80px;
+	text-align: center;
+}
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
