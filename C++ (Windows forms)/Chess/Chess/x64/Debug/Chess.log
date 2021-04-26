@@ -1,0 +1,16 @@
+﻿  chess.cpp
+D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\Chess\chess.cpp(140,25): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  complex.cpp
+  Main.cpp
+D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\Chess\Main.h(17,42): warning C4677: context: сигнатура члена, не являющегося частным, содержит частный тип сборки "msclr::interop::marshal_context"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\msclr\marshal.h(339): message : см. объявление "msclr::interop::marshal_context"
+D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\Chess\Main.h(30,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  matrix.cpp
+D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\Chess\matrix.cpp(41,17): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  neuralNetwork.cpp
+D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\Chess\neuralNetwork.cpp(15,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  play.cpp
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  Создание кода...
+  chess.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Chess.vcxproj -> D:\Catalog\Projects\MachineLearning\Chess\C++\Chess\x64\Debug\Chess.exe
