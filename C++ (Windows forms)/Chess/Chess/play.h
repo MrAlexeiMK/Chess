@@ -19,7 +19,7 @@ namespace Chess {
 	public ref class play : public System::Windows::Forms::Form {
 	public:
 		chess* game = new chess(1000);
-		neuralNetwork* AI = new neuralNetwork(vector<int>{82 * 9, 600, 1}, 3.0);
+		neuralNetwork* AI = new neuralNetwork(vector<int>{82 * 7, 300, 1}, 3.0);
 		string *path = new string;
 	public:
 		int last = -1;

@@ -34,7 +34,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="neuralNetwork.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

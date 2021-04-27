@@ -221,13 +221,13 @@ vector<coords> chess::getFigs(string reg) {
 }
 
 vector<double> chess::toArray() {
-    vector<double> res(82 * 9, 0.01);
+    vector<double> res(82 * 7, 0.01);
     string reg = "012346789a";
     int len = reg.size();
     string temp;
     int num = 0;
     for (int i = 0; i < len; ++i) {
-        num = 8 * 9 * i;
+        num = 8 * 7 * i;
         vector<coords> c = getFigs(string(1, reg[i]));
         for (coords v : c) {
             temp = bitset< 7 >(8 * v.row + v.column + 1).to_string();
@@ -238,7 +238,7 @@ vector<double> chess::toArray() {
             }
         }
     }
-    num = 80 * 9;
+    num = 80 * 7;
     for (coords v : getFigs("b")) {
         temp = bitset< 7 >(8 * v.row + v.column + 1).to_string();
         for (char c : temp) {
@@ -725,15 +725,6 @@ step chess::notationToSteps(string nt) {
     map<char, int> conv; map<char, string> conv2;
     conv['a'] = 0; conv['b'] = 1; conv['c'] = 2; conv['d'] = 3; conv['e'] = 4; conv['f'] = 5; conv['g'] = 6; conv['h'] = 7;
     conv2['K'] = "5b"; conv2['Q'] = "4a"; conv2['N'] = "28"; conv2['R'] = "17"; conv2['B'] = "39";
-    /*vector<vector<char>> default_pos{
-        {'1','2','3','4','5','3','2','1'},
-        {'0','0','0','0','0','0','0','0'},
-        {' ',' ',' ',' ',' ',' ',' ',' '},
-        {' ',' ',' ',' ',' ',' ',' ',' '},
-        {' ',' ',' ',' ',' ',' ',' ',' '},
-        {' ',' ',' ',' ',' ',' ',' ',' '},
-        {'6','6','6','6','6','6','6','6'},
-        {'7','8','9','a','b','9','8','7'} };*/
     coords nul = { -1, -1 };
     coords from = nul, to = nul;
     string target = "";

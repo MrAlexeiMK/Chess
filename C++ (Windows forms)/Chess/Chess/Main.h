@@ -26,6 +26,10 @@ namespace Chess {
 	public:
 		String^ rating_str = System::IO::File::ReadAllText("rating.chess");
 	private: System::Windows::Forms::Label^ info;
+
+
+
+
 	public:
 		int rating_int = System::Convert::ToInt32(rating_str);
 	public:
@@ -54,8 +58,6 @@ namespace Chess {
 	private: System::Windows::Forms::Button^ select_train_ai;
 	public: System::Windows::Forms::ProgressBar^ progress;
 	private: System::ComponentModel::IContainer^ components;
-
-	private:
 
 
 #pragma region Windows Form Designer generated code
@@ -194,7 +196,7 @@ namespace Chess {
 			// 
 			// info
 			// 
-			this->info->Location = System::Drawing::Point(50, 345);
+			this->info->Location = System::Drawing::Point(37, 345);
 			this->info->Name = L"info";
 			this->info->Size = System::Drawing::Size(417, 104);
 			this->info->TabIndex = 11;
@@ -205,7 +207,7 @@ namespace Chess {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(526, 504);
+			this->ClientSize = System::Drawing::Size(516, 495);
 			this->Controls->Add(this->info);
 			this->Controls->Add(this->train_in_game);
 			this->Controls->Add(this->log);
