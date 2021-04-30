@@ -764,22 +764,16 @@ step chess::doStepAI(neuralNetwork &AI) {
         vector<pair<pair<double, step>, vector<double>>> best_steps;
         if (prop.isWhite) {
             merge_sort(arr, 0, arr.size() - 1, true);
-            for (auto p : arr) {
-                if (abs(p.first.first-arr[0].first.first) > eps) break;
-                best_steps.push_back(p);
-            }
         }
         else {
             merge_sort(arr, 0, arr.size() - 1, false);
-            for (auto p : arr) {
-                if (abs(p.first.first - arr[0].first.first) > eps) break;
-                best_steps.push_back(p);
-            }
+        }
+        for (auto p : arr) {
+            if (abs(p.first.first - arr[0].first.first) > eps) break;
+            best_steps.push_back(p);
         }
         int i = rand() % best_steps.size();
         doStep(best_steps[i].first.second);
-        training_data.push_back(best_steps[i].second);
-        resources.push_back(getCoefficient());
         return best_steps[i].first.second;
     }
 }
