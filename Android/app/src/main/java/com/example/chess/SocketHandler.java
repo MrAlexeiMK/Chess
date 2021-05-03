@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import android.util.Log;
 
 public class SocketHandler extends Service {
     ExecutorService es;
@@ -73,37 +73,34 @@ public class SocketHandler extends Service {
         }
 
         public void run() {
-            while (true) {
-                try {
-                    Socket soc = new Socket("127.0.0.1", 1234);
-                    sout = new PrintWriter(soc.getOutputStream(), false);
-                    sout.print(nickname+"|me|white");
-                    sout.flush();
-                    pi.send(MainActivity.STATUS_CONNECTED);
+            try {
+                Socket soc = new Socket("192.168.43.39", 1234);
+                sout = new PrintWriter(soc.getOutputStream(), false);
+                sout.print(nickname+"|"+type+"|white");
+                sout.flush();
+                pi.send(Play.STATUS_CONNECTED);
 
-                    InputStream stream = soc.getInputStream();
-                    String data;
-                    byte[] buf = new byte[1024];
-                    while (true) {
-                        int count = stream.read(buf, 0, buf.length);
-                        if (count > 0) {
-                            data = new String(buf, 0, count);
-                            String[] arr = data.split("|");
-                            String board = arr[0];
-                            String status = arr[1];
-                            Intent intent;
-                            intent = new Intent().putExtra("pos", board);
-                            intent = new Intent().putExtra("status", status);
-                            pi.send(SocketHandler.this, MainActivity.STATUS_GET_DATA, intent);
-                        }
-                    }
-                } catch (Exception e) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
+                InputStream stream = soc.getInputStream();
+                String data;
+                byte[] buf = new byte[1024];
+                while (true) {
+                    int count = stream.read(buf, 0, buf.length);
+                    if (count > 0) {
+                        data = new String(buf, 0, count);
+                        Log.i("BOARD", data);
+                        String[] arr = data.split("|");
+                        String board = arr[0];
+                        String status = arr[1];
+                        Intent intent;
+                        intent = new Intent().putExtra("pos", board).putExtra("status", status);
+                        pi.send(SocketHandler.this, Play.STATUS_GET_DATA, intent);
                     }
                 }
+            } catch (Exception e) {
+                try {
+                    pi.send(Play.STATUS_DISCONNECTED);
+                    Log.e("ERROR", e.getMessage());
+                } catch (PendingIntent.CanceledException canceledException) { }
             }
         }
 

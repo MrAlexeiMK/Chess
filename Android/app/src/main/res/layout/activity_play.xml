@@ -9,15 +9,13 @@
     <GridView
         android:id="@+id/board"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="300dp"
+        android:layout_height="360dp"
         android:background="#BAB4A2"
-        android:columnWidth="35dp"
+        android:columnWidth="45dp"
         android:gravity="center"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:numColumns="8"
+        android:stretchMode="none"
+        android:verticalSpacing="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,11 +30,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Назад" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="back"
+        android:text="Назад"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/log2"
+        android:layout_width="293dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginRight="59dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
