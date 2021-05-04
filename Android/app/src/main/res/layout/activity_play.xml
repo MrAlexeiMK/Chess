@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/log2"
+        android:id="@+id/info_play"
         android:layout_width="293dp"
         android:layout_height="58dp"
         android:layout_marginStart="59dp"

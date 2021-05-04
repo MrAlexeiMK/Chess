@@ -1,10 +1,8 @@
 package com.example.chess;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -23,16 +21,17 @@ public class Play extends AppCompatActivity {
     public static List<Integer> ids;
     public static List<Integer> images;
     public static List<Integer> backgrounds;
-    TextView log2;
+    public TextView log;
     String username, type;
     boolean youWhite;
     GridView gv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         Intent intent = getIntent();
-        log2 = (TextView)findViewById(R.id.log2);
+        log = (TextView)findViewById(R.id.info_play);
         username = ""+intent.getStringExtra("username");
         type = ""+intent.getStringExtra("type");
 
@@ -42,9 +41,8 @@ public class Play extends AppCompatActivity {
         youWhite = true;
 
         initGrid();
+        addUser();
         createGrid();
-
-        startConnect();
     }
 
     public void initGrid() {
@@ -91,28 +89,45 @@ public class Play extends AppCompatActivity {
             else backgrounds.add(Color.parseColor("#a0c030"));
             ++j;
         }
-        gv.setAdapter(new BorderAdapter(this, ids, images, backgrounds, username, type));
+        gv.setAdapter(new BorderAdapter(this, ids, images, backgrounds, username, type, log, youWhite));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        delUser();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        BorderAdapter.count_updates = 21;
+        delUser();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        delUser();
     }
 
     public void back(View v) {
         if(v.getId() == R.id.menu) {
-            stopConnect();
+            delUser();
             finish();
         }
     }
 
-    public void startConnect() {
-        PendingIntent pi;
-        Intent intent;
-        Intent www = new Intent();
-        pi = createPendingResult(1, www, 0);
-        intent = new Intent(this, SocketHandler.class).putExtra("nickname", username).putExtra("type", type)
-                .putExtra("pending", pi);
-        startService(intent);
+    public void addUser() {
+        SocketHandler soc = new SocketHandler();
+        String you_white_str = "black";
+        if(youWhite) you_white_str = "white";
+        soc.execute("user_add|"+username+"|"+type+"|"+you_white_str, "false");
     }
 
-    public void stopConnect() {
-        stopService(new Intent(this, SocketHandler.class));
+    public void delUser() {
+        SocketHandler soc = new SocketHandler();
+        soc.execute("user_remove|"+username+"|"+type, "false");
     }
 
     @Override
@@ -120,14 +135,13 @@ public class Play extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
             case STATUS_CONNECTED:
-                log2.setText("Успешное подключение");
+                log.setText("Успешное подключение");
                 break;
             case STATUS_DISCONNECTED:
-                log2.setText("Не удалось подключиться");
+                log.setText("Не удалось подключиться");
                 break;
             case STATUS_GET_DATA:
-                String pos = data.getStringExtra("pos");
-                String status = data.getStringExtra("status");
+
                 break;
         }
     }

@@ -24,7 +24,7 @@
             android:layout_height="58dp"
             android:ems="10"
             android:hint="  Имя пользователя"
-            android:inputType="textPersonName" />
+            android:inputType="textNoSuggestions" />
 
         <Button
             android:id="@+id/play"
@@ -39,6 +39,13 @@
             android:layout_height="62dp"
             android:onClick="playWithAI"
             android:text="Играть против ИИ" />
+
+        <Button
+            android:id="@+id/play_vs_players"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:onClick="playWithAI"
+            android:text="Играть против игроков" />
 
     </LinearLayout>
 
