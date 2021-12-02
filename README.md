@@ -1,6 +1,12 @@
 # Chess
  Chess with AI
-
+ <b>Installation:</b>  
+ For Web and Android: create database from users.sql, edit IP everywhere on your, run Python server and enter from clients  
+ For Windows Forms: Just download 'Шахматы (установщик).msi' and run  
+  
+  <b>Windows forms demonstration</b>
+  <a href="https://www.youtube.com/watch?v=0nuiFbg460E&t=82s">link</a>  
+    
 <b>Windows forms app screenshots:</b> <br/> <br/>
 <img src="https://user-images.githubusercontent.com/25348980/116173427-3e853080-a715-11eb-922a-40ad094f0bae.png" width="300"></img> <br/>
 <img src="https://user-images.githubusercontent.com/25348980/116173659-a3d92180-a715-11eb-9b46-4a048d8b1a38.png" width="300"></img> <br/> <br/>
