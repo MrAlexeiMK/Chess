@@ -17,7 +17,7 @@ public class SocketHandler extends AsyncTask<String, Void, String> {
         try {
             String message = params[0];
             String get_data = params[1];
-            Socket socket = new Socket("192.168.43.39", 1234);
+            Socket socket = new Socket("192.168.0.108", 1234);
             PrintWriter scout = new PrintWriter(socket.getOutputStream(), false);
             scout.print(message);
             scout.flush();
